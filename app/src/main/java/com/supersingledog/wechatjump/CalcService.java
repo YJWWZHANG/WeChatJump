@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 
+import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.ImageUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ServiceUtils;
@@ -60,6 +61,7 @@ public class CalcService extends Service{
                 }
                 mTotal++;
 //                String imgPath = Environment.getExternalStorageDirectory().getPath() + "/IMG_CACHE/temp.png";
+                FileUtils.createOrExistsDir(Environment.getExternalStorageDirectory().getPath() + "/IMG_CACHE");
                 String imgPath = Environment.getExternalStorageDirectory().getPath() + "/IMG_CACHE/img_" + imgNum++ % 10 + ".png";
                 ShellUtils.execCmd("/system/bin/screencap -p " + imgPath, true, true);
                 mBitmap = ImageUtils.getBitmap(imgPath);
