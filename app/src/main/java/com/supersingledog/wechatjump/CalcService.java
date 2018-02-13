@@ -105,8 +105,8 @@ public class CalcService extends Service{
                 } else {
                     mTotal = 9999;
                 }
+                SystemClock.sleep(4000 + new Random().nextInt(3000));
             }
-            SystemClock.sleep(1000 + new Random().nextInt(2000));
         }
     }
 
